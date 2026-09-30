@@ -12,7 +12,9 @@ const stats = computed(() => [
   { label:'测试用例', value:store.cases.length, note:'关联 4 条基本进路' },
   { label:'执行进度', value:`${store.progress}%`, note:'实时同步正常' },
   { label:'失败 / 阻塞', value:store.cases.filter((item)=>['失败','阻塞'].includes(item.status)).length, note:'发布前必须闭环' },
-  { label:'受影响回归范围', value:store.affectedCases.length, note:'设备变更自动推导' },
+  { label:'受影响回归范围', value:store.affectedCases.length, note:'按当前进路自动重算' },
+  { label:'已失效记录', value:store.invalidCount, note:'设备改动导致' },
+  { label:'待复核记录', value:store.pendingReviewCount, note:'基线锁定后新记录' },
 ])
 </script>
 
